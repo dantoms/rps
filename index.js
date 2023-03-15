@@ -1,3 +1,7 @@
+let computerChoice = getComputerChoice();
+let playerChoice = getPlayerChoice();
+let winner = determineWinner();
+
 function getComputerChoice() {
     let computerChoice
     let randomNumber = Math.floor(Math.random() * 3);
@@ -19,7 +23,7 @@ function getComputerChoice() {
 function getPlayerChoice() {
     let playerChoice
     while (playerChoice !== "r" && playerChoice !== "s" && playerChoice !== "p") {
-        console.log(playerChoice)
+        //console.log(playerChoice)
         playerChoice = prompt("Choose your weapon, warrior!\n\nRock, Paper or Scissors? ", "r");
     }
 
@@ -57,8 +61,18 @@ function determineWinner() {
 
 }
 
-let computerChoice = getComputerChoice();
-let playerChoice = getPlayerChoice();
-let winner = determineWinner();
-console.log("Computer: " + computerChoice + ". Player: " + playerChoice);
-console.log(winner);
+function playRound() {
+    computerChoice = getComputerChoice();
+    playerChoice = getPlayerChoice();
+    winner = determineWinner();
+    console.log("Computer: " + computerChoice + ". Player: " + playerChoice);
+    console.log(winner);
+}
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        playRound();
+    }
+}
+
+game()
