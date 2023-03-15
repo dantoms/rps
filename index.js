@@ -22,20 +22,43 @@ function getPlayerChoice() {
         console.log(playerChoice)
         playerChoice = prompt("Choose your weapon, warrior!\n\nRock, Paper or Scissors? ", "r");
     }
-    
+
     if (playerChoice === "r") {
-        playerChoice = "ROCK"
+        playerChoice = "ROCK";
     }
     else if (playerChoice === "p") {
-        playerChoice = "PAPER"
+        playerChoice = "PAPER";
     }
     else {
-        playerChoice = "SCISSORS"
+        playerChoice = "SCISSORS";
     }
 
     return playerChoice;
 }
 
-let computerChoice = getComputerChoice()
-let playerChoice = getPlayerChoice()
-console.log("Computer: " + computerChoice + ". Player: " + playerChoice)
+function determineWinner() {
+    // Create set
+    let winningPairs = new Set();
+    // Add elements to the set
+    winningPairs.add("ROCKSCISSORS");
+    winningPairs.add("PAPERROCK");
+    winningPairs.add("SCISSORSPAPER");
+
+
+    if (computerChoice === playerChoice) {
+        return "It's a draw. You both lost!";
+    }
+    else if (winningPairs.has(playerChoice + computerChoice)) {
+        return "You may have won the battle but you haven't won the war..."
+    }
+    else {
+        return "LOSER! Hey everyone, come and se how much of a loser this guy is!"
+    }
+
+}
+
+let computerChoice = getComputerChoice();
+let playerChoice = getPlayerChoice();
+let winner = determineWinner();
+console.log("Computer: " + computerChoice + ". Player: " + playerChoice);
+console.log(winner);
