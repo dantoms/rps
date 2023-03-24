@@ -1,7 +1,3 @@
-let computerChoice = getComputerChoice();
-let playerChoice = getPlayerChoice();
-let winner = determineWinner();
-
 function getComputerChoice() {
     let computerChoice
     let randomNumber = Math.floor(Math.random() * 3);
@@ -20,27 +16,10 @@ function getComputerChoice() {
     
 }
 
-function getPlayerChoice() {
-    let playerChoice
-    while (playerChoice !== "r" && playerChoice !== "s" && playerChoice !== "p") {
-        //console.log(playerChoice)
-        playerChoice = prompt("Choose your weapon, warrior!\n\nRock, Paper or Scissors? ", "r");
-    }
+function playRound(playerChoice, computerChoice) {
 
-    if (playerChoice === "r") {
-        playerChoice = "ROCK";
-    }
-    else if (playerChoice === "p") {
-        playerChoice = "PAPER";
-    }
-    else {
-        playerChoice = "SCISSORS";
-    }
-
-    return playerChoice;
-}
-
-function determineWinner() {
+    //getComputerChoice();
+    
     // Create set
     let winningPairs = new Set();
     // Add elements to the set
@@ -49,30 +28,34 @@ function determineWinner() {
     winningPairs.add("SCISSORSPAPER");
 
 
-    if (computerChoice === playerChoice) {
-        return "It's a draw. You both lost!";
+    if (computerChoice === playerChoice.toUpperCase()) {
+        return "It's a draw. You both fuckin' stink!";
     }
-    else if (winningPairs.has(playerChoice + computerChoice)) {
-        return "You may have won the battle but you haven't won the war..."
+    else if (winningPairs.has(playerChoice.toUpperCase() + computerChoice)) {
+        playerScore++;
+        return "You win. Whoop de fuckin' do. Is your mother proud of you?";
     }
     else {
-        return "LOSER! Hey everyone, come and se how much of a loser this guy is!"
+        computerScore++;
+        return "LOSER! Hey everyone, come and see how much of a loser this guy is!";
     }
 
-}
-
-function playRound() {
-    computerChoice = getComputerChoice();
-    playerChoice = getPlayerChoice();
-    winner = determineWinner();
-    console.log("Computer: " + computerChoice + ". Player: " + playerChoice);
-    console.log(winner);
 }
 
 function game() {
-    for (let i = 0; i < 5; i++) {
-        playRound();
+       for (let i = 0; i < 5; i++) {
+        const playerChoice = "rOck";
+        const computerChoice = getComputerChoice();
+        console.log(`Game ${i}\nYOU:${playerChoice} === COMPUTER:${computerChoice}\n${playRound(playerChoice, computerChoice)}`);
+        playRound(playerChoice, computerChoice)
     }
+
+    console.log(`Final Scores \nPlayer:${playerScore} - Computer:${computerScore}`);
 }
 
-game()
+let playerScore = 0;
+let computerScore = 0;
+//const computerChoice = getComputerChoice();
+//console.log(`p: ${playerChoice} === ${computerChoice}`);
+//console.log(playRound(playerChoice, computerChoice));
+game();
