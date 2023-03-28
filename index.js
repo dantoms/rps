@@ -46,9 +46,8 @@ function game() {
        for (let i = 0; i < 5; i++) {
         const playerChoice = "rOck";
         const computerChoice = getComputerChoice();
-        console.log(`${i} Final Scores \nPlayer:${playerScore} - Computer:${computerScore}`);
-        console.log(`Game ${i}\nYOU:${playerChoice} === COMPUTER:${computerChoice}\n${playRound(playerChoice, computerChoice)}`);
-        playRound(playerChoice, computerChoice)
+        console.log(playRound(playerChoice, computerChoice))
+        console.log(`Game ${i+1}\nYOU:${playerChoice} === COMPUTER:${computerChoice}\nScores \nPlayer:${playerScore} - Computer:${computerScore}`);
     }
 
     console.log(`Final Scores \nPlayer:${playerScore} - Computer:${computerScore}`);
