@@ -47,10 +47,13 @@ function game() {
         const playerChoice = prompt("Enter 'Rock', 'Paper' or 'Scissors'");
         const computerChoice = getComputerChoice();
         console.log(playRound(playerChoice, computerChoice))
-        console.log(`Game ${i+1}\nYOU:${playerChoice} === COMPUTER:${computerChoice}\nScores \nPlayer:${playerScore} - Computer:${computerScore}`);
+        console.log(`Game ${i+1}\n
+        YOU:${playerChoice} === COMPUTER:${computerChoice}\n
+        Scores \nPlayer:${playerScore} - Computer:${computerScore}`);
     }
 
-    console.log(`Final Scores \nPlayer:${playerScore} - Computer:${computerScore}`);
+    console.log(`Final Scores\n
+    Player:${playerScore} - Computer:${computerScore}`);
 }
 
 let playerScore = 0;
