@@ -35,7 +35,7 @@ function playRound(playerChoice, computerChoice) {
 }
 
 function game() {
-  const playerChoice = prompt("Enter 'Rock', 'Paper' or 'Scissors'");
+  //const playerChoice = prompt("Enter 'Rock', 'Paper' or 'Scissors'");
   const computerChoice = getComputerChoice();
   console.log(playRound(playerChoice, computerChoice));
   console.log(`Game ${i + 1}\n
