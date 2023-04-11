@@ -1,11 +1,20 @@
+let playerScore = 0;
+let computerScore = 0;
 const choices = document.querySelectorAll('.choices');
 const scoresElement = document.querySelector('#scores');
-scoresElement.innerText = "Let's play RPSFU!";
+scoresElement.innerText = "Let's play Rock, Paper, Scissors!";
 
 choices.forEach((choice) => {
         choice.addEventListener('click', (event) => {
                 game(event.target.innerText);
         });
+});
+
+const reset = document.querySelector('#btn-reset');
+reset.addEventListener('click', function () {
+        playerScore = 0;
+        computerScore = 0;
+        scoresElement.innerText = `Scores \nPlayer:${playerScore} - Computer:${computerScore}`;
 });
 
 function getComputerChoice() {
@@ -67,7 +76,3 @@ function game(playerChoice) {
                 computerScore = 0;
         }
 }
-
-let playerScore = 0;
-let computerScore = 0;
-//game();
